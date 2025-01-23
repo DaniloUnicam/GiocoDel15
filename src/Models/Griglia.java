@@ -104,14 +104,10 @@ public class Griglia implements IGrid {
     }
 
     private void scambiaTasselli(Tassello tassello, Tassello tasselloSuccessivo) {
-        for (int i = 0; i < grigliaGioco.length; i++) {
-            for (int j = 0; j < grigliaGioco[0].length; j++) {
-                if (isEmpty(tasselloSuccessivo)) {
-                    Tassello temp = tasselloSuccessivo;
-                    tasselloSuccessivo = tassello;
-                    tassello = temp;
-                }
-            }
+        if (isEmpty(tasselloSuccessivo)) {
+            Tassello temp = tasselloSuccessivo;
+            tasselloSuccessivo = tassello;
+            tassello = temp;
         }
     }
 
@@ -120,7 +116,7 @@ public class Griglia implements IGrid {
     {
         int posX = tassello.getPosizione().getX();
         int posY = tassello.getPosizione().getY();
-        return posX < this.getRows() || posX > 0 || posY < this.getCols() || posY > 0;
+        return posX < this.getRows() || posX >= 0 || posY < this.getCols() || posY >= 0;
     }
 
     private boolean isEmpty(Tassello tassello)

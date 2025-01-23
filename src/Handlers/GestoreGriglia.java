@@ -4,7 +4,6 @@ import Abstractions.Handlers.HandlerGrid;
 import Models.Griglia;
 import Models.Tassello;
 
-import java.util.Collection;
 
 public class GestoreGriglia implements HandlerGrid {
 
@@ -27,7 +26,6 @@ public class GestoreGriglia implements HandlerGrid {
                     continue;
                 }
 
-                // Ottieni il tassello nella posizione corrente
                 Tassello tassello = griglia.getTassello(i, j);
 
                 if (tassello == null || tassello.getValore() != valoreAtteso++) {
